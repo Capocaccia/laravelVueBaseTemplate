@@ -8,7 +8,7 @@ To get started:
 ```
 
 ```
- In the directory root run: composer install
+ In the directory root run: composer install && cd frontend && npm install && cd ..
 ```
 
 ```
