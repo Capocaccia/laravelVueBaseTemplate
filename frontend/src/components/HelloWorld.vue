@@ -16,6 +16,8 @@
 </template>
 
 <script>
+  import routes from '../../routes.js'
+
 export default {
   name: 'HelloWorld',
   data() {
@@ -26,23 +28,18 @@ export default {
   },
   methods: {
     getFromWeb: function () {
-      fetch('/sayHi')
-              .then((rsp) => {
-                rsp.json()
-                        .then((rsp) => {
-                          this.dataFromWeb = rsp.message
-                        })
-              })
+      routes.getData.fromWeb()
+        .then((rsp) => {
+          this.dataFromWeb = rsp.data.message
+        })
     },
     getFromController: function () {
-      fetch('/sayHiFromController')
-              .then((rsp) => {
-                rsp.json()
-                        .then((rsp) => {
-                          this.dataFromController = rsp.message
-                        })
-              })
-    }
+      routes.getData.dataFromController()
+        .then((rsp) => {
+          this.dataFromController = rsp.data.message
+        })
+    },
+
   }
 }
 </script>
